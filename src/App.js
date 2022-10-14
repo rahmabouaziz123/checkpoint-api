@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+import "bootstrap/dist/css/bootstrap.min.css";
+import { UserList } from "./Components/UserList";
+
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+const App = () => {
+  const [data, setData] = useState([]); // where to store the returned data
+  const [error, setError] = useState(null); // where to store the coming errors
+
+  
+
+  try {
+    const getData = async () => {
+      const { data } = await axios.get(
+        `https://jsonplaceholder.typicode.com/users`
+      );
+      setData(data);
+    };
+    useEffect(() => {
+      getData();
+    }, []);
+  } catch (error) {}
+
+  console.log(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserList data={data} />
     </div>
   );
-}
-
+};
 export default App;

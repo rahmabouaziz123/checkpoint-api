@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+
+.userCard{
+  background: #800000 !important;
+  color: #fff;
+  margin: 10px 10px;
+  height: 800px;
+  width: 350px !important;
+
+  font-size: 20px;
+}
+
+.parentUser{
+  display: flex;
+  /* justify-content: space-around; */
+  flex-wrap: wrap;
+
+}
+
+.titre{
+  color: #F5DF4D;
+}
+
+body{
+  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+
+.titreGlobale{
+  text-align: center;
+  color: #fff;
+  background: #800000;
+  text-transform: unset;
+
+}
